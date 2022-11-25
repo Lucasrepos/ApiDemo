@@ -9,11 +9,10 @@ describe('API Demo', function () {
 
         cy.request('GET', `${EndPoint}${ListUsers}`).then((response) => {
             expect(response.status).equal(200)
-            expect(response.body.data[0].first_name).equal('Michael')
-            expect(response.body.data[5].first_name).equal('Rachel')
-            expect(response.body.data[5].email).equal('rachel.howell@reqres.in')
-            expect(response.body.data[5].last_name).equal('Howell')
-            expect(response.body.total).equal(12)
+            expect(response.body.data[5].first_name).equal(UserList.first_name)
+            expect(response.body.data[5].email).equal(UserList.email)
+            expect(response.body.data[5].last_name).equal(UserList.last_name)
+            expect(response.body.total).equal(UserList.id)
         })
     })
 
@@ -21,12 +20,12 @@ describe('API Demo', function () {
 
         cy.request('GET', `${EndPoint}${ListResource}`).then((response) => {
             expect(response.status).equal(200)
-            expect(response.body.total).equal(12)
-            expect(response.body.data[0].id).equal(1)
-            expect(response.body.data[0].name).equal('cerulean')
-            expect(response.body.data[0].year).equal(2000)
-            expect(response.body.data[0].color).equal('#98B2D1')
-            expect(response.body.data[0].pantone_value).equal('15-4020')
+            expect(response.body.total).equal(Resources.total)
+            expect(response.body.data[0].id).equal(Resources.id)
+            expect(response.body.data[0].name).equal(Resources.name)
+            expect(response.body.data[0].year).equal(Resources.year)
+            expect(response.body.data[0].color).equal(Resources.color)
+            expect(response.body.data[0].pantone_value).equal(Resources.pantone_value)
         })
     })
 
@@ -110,47 +109,59 @@ describe('API Demo', function () {
         })
     })
 
-})
-
-
 const EndPoint = 'https://reqres.in'
-const ListUsers = '/api/users?page=2'
-const ListResource = '/api/unknown'
-const Create = '/api/users'
-const Update = '/api/users/2'
-const Delete = '/api/users/2'
-const Register = '/api/register'
-const ApiLoguin = '/api/login'
+    const ListUsers = '/api/users?page=2'
+    const ListResource = '/api/unknown'
+    const Create = '/api/users'
+    const Update = '/api/users/2'
+    const Delete = '/api/users/2'
+    const Register = '/api/register'
+    const ApiLoguin = '/api/login'
 
 
-var CreateBody = {
-    name: "Lucas",
-    job: "QA Automation"
-}
-var UpdateBody = {
-    name: "Damian",
-    job: "Developer"
-}
+    var CreateBody = {
+        name: "Lucas",
+        job: "QA Automation"
+    }
+    var UpdateBody = {
+        name: "Damian",
+        job: "Developer"
+    }
 
-var RegRequest = {
-    email: "eve.holt@reqres.in",
-    password: "pistol"
-}
-var RegResponse = {
-    id: 4,
-    token: "QpwL5tke4Pnpja7X4"
-}
-var BadRequest = {
-    email: "sydney@fife.com"
-}
-var ErrorMessage = {
-    error: "Missing password"
-}
-var LoguinBody = {
-    email: "eve.holt@reqres.in",
-    password: "cityslicka"
-}
-var BadLoguin = { email: "peter@klaven" }
+    var RegRequest = {
+        email: "eve.holt@reqres.in",
+        password: "pistol"
+    }
+    var RegResponse = {
+        id: 4,
+        token: "QpwL5tke4Pnpja7X4"
+    }
+    var BadRequest = {
+        email: "sydney@fife.com"
+    }
+    var ErrorMessage = {
+        error: "Missing password"
+    }
+    var LoguinBody = {
+        email: "eve.holt@reqres.in",
+        password: "cityslicka"
+    }
+    var BadLoguin = { email: "peter@klaven" }
 
+    var UserList = {
+        id: 12,
+        email: "rachel.howell@reqres.in",
+        first_name: "Rachel",
+        last_name: "Howell",
+    }
 
+    var Resources = {
+        total:12,
+        id:1,
+        name:'cerulean',
+        year:2000,
+        pantone_value:'15-4020',
+        color: '#98B2D1'
+    }
 
+})
