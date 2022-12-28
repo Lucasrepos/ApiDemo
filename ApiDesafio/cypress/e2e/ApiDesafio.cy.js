@@ -109,7 +109,7 @@ describe('API Demo', function () {
         })
     })
 
-const EndPoint = 'https://reqres.in'
+    const EndPoint = 'https://reqres.in'
     const ListUsers = '/api/users?page=2'
     const ListResource = '/api/unknown'
     const Create = '/api/users'
@@ -119,43 +119,43 @@ const EndPoint = 'https://reqres.in'
     const ApiLoguin = '/api/login'
 
 
-    var CreateBody = {
+    const CreateBody = {
         name: "Lucas",
         job: "QA Automation"
     }
-    var UpdateBody = {
+    const UpdateBody = {
         name: "Damian",
         job: "Developer"
     }
 
-    var RegRequest = {
+    const RegRequest = {
         email: "eve.holt@reqres.in",
         password: "pistol"
     }
-    var RegResponse = {
+    const RegResponse = {
         id: 4,
         token: "QpwL5tke4Pnpja7X4"
     }
-    var BadRequest = {
+    const BadRequest = {
         email: "sydney@fife.com"
     }
-    var ErrorMessage = {
+    const ErrorMessage = {
         error: "Missing password"
     }
-    var LoguinBody = {
+    const LoguinBody = {
         email: "eve.holt@reqres.in",
         password: "cityslicka"
     }
-    var BadLoguin = { email: "peter@klaven" }
+    const BadLoguin = { email: "peter@klaven" }
 
-    var UserList = {
+    const UserList = {
         id: 12,
         email: "rachel.howell@reqres.in",
         first_name: "Rachel",
         last_name: "Howell",
     }
 
-    var Resources = {
+    const Resources = {
         total:12,
         id:1,
         name:'cerulean',
